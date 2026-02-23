@@ -143,6 +143,20 @@ Then open: `http://127.0.0.1:8000/docs`
 
 ---
 
+## 🔮 Future Enhancements
+
+Features planned to further improve model accuracy:
+
+| Feature | Source | Expected Impact |
+|---|---|---|
+| Walk Score | WalkScore API (5,000 free/day) | Walkable areas command 10-20% premium |
+| School Ratings | GreatSchools API | Families pay premium for good school zones |
+| Crime Index | Local police data APIs | Safety score directly impacts pricing |
+| Property Type | Zillow/Redfin data | Single family vs condo price differently |
+| Interest Rates | FRED API (free) | Macro factor affecting affordability |
+| Employment Hub Distance | Google Maps API | Proximity to tech campuses and hospitals |
+---
+
 ## 👤 Author
 
 **Navin Kumar Nagisetty**
