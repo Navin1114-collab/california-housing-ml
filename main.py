@@ -1,16 +1,35 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-import pickle
 import numpy as np
+import pandas as pd
+from sklearn.datasets import fetch_california_housing
+from sklearn.model_selection import train_test_split
+from xgboost import XGBRegressor
 
-# Load the trained model
-with open('model.pkl', 'rb') as f:
-    model = pickle.load(f)
+# Train the model on startup
+print("Training model...")
+housing = fetch_california_housing()
+df = pd.DataFrame(housing.data, columns=housing.feature_names)
+df['MedHouseVal'] = housing.target
+
+# Feature engineering
+df = df[df['MedHouseVal'] < 5.0]
+df['rooms_per_person'] = df['AveRooms'] / df['AveOccup']
+df['bedrooms_ratio'] = df['AveBedrms'] / df['AveRooms']
+df['income_per_occupant'] = df['MedInc'] / df['AveOccup']
+
+X = df.drop('MedHouseVal', axis=1)
+y = df['MedHouseVal']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+model = XGBRegressor(n_estimators=100, random_state=42)
+model.fit(X_train, y_train)
+print("Model trained. R2:", round(model.score(X_test, y_test), 4))
 
 # Create the FastAPI app
 app = FastAPI(title='California Housing Price Predictor')
 
-# Define what input data looks like
 class HouseFeatures(BaseModel):
     MedInc: float
     HouseAge: float
@@ -24,12 +43,10 @@ class HouseFeatures(BaseModel):
     bedrooms_ratio: float
     income_per_occupant: float
 
-# Root endpoint — just to confirm API is alive
 @app.get('/')
 def home():
     return {'message': 'California Housing Price Predictor is running'}
 
-# Prediction endpoint
 @app.post('/predict')
 def predict(features: HouseFeatures):
     data = np.array([[
