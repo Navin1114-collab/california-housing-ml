@@ -1,0 +1,132 @@
+<svg viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sh">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="340" fill="url(#bg2)" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="32" text-anchor="middle" fill="#f8fafc" font-size="16" font-weight="700" letter-spacing="1">ML Pipeline — Data to Prediction</text>
+  <line x1="150" y1="42" x2="750" y2="42" stroke="#334155" stroke-width="1"/>
+
+  <!-- Step colors and data -->
+  <!-- Step 1: Raw Data -->
+  <rect x="30" y="60" width="120" height="110" rx="10" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2" filter="url(#sh)"/>
+  <text x="90" y="84" text-anchor="middle" fill="#60a5fa" font-size="20">📦</text>
+  <text x="90" y="104" text-anchor="middle" fill="white" font-size="12" font-weight="700">Raw Data</text>
+  <line x1="40" y1="112" x2="140" y2="112" stroke="#1d4ed8" stroke-width="1"/>
+  <text x="90" y="127" text-anchor="middle" fill="#93c5fd" font-size="9">20,640 rows</text>
+  <text x="90" y="141" text-anchor="middle" fill="#93c5fd" font-size="9">8 columns</text>
+  <text x="90" y="155" text-anchor="middle" fill="#93c5fd" font-size="9">sklearn dataset</text>
+
+  <line x1="153" y1="115" x2="185" y2="115" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Step 2: EDA -->
+  <rect x="188" y="60" width="120" height="110" rx="10" fill="#2d1b69" stroke="#8b5cf6" stroke-width="2" filter="url(#sh)"/>
+  <text x="248" y="84" text-anchor="middle" fill="#a78bfa" font-size="20">🔍</text>
+  <text x="248" y="104" text-anchor="middle" fill="white" font-size="12" font-weight="700">EDA</text>
+  <line x1="198" y1="112" x2="298" y2="112" stroke="#6d28d9" stroke-width="1"/>
+  <text x="248" y="127" text-anchor="middle" fill="#c4b5fd" font-size="9">Distributions</text>
+  <text x="248" y="141" text-anchor="middle" fill="#c4b5fd" font-size="9">Correlations</text>
+  <text x="248" y="155" text-anchor="middle" fill="#c4b5fd" font-size="9">Geo heatmaps</text>
+
+  <line x1="311" y1="115" x2="343" y2="115" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Step 3: Feature Engineering -->
+  <rect x="346" y="60" width="120" height="110" rx="10" fill="#451a03" stroke="#f59e0b" stroke-width="2" filter="url(#sh)"/>
+  <text x="406" y="84" text-anchor="middle" fill="#fbbf24" font-size="20">⚙️</text>
+  <text x="406" y="104" text-anchor="middle" fill="white" font-size="12" font-weight="700">Features</text>
+  <line x1="356" y1="112" x2="456" y2="112" stroke="#d97706" stroke-width="1"/>
+  <text x="406" y="127" text-anchor="middle" fill="#fde68a" font-size="9">Haversine dist.</text>
+  <text x="406" y="141" text-anchor="middle" fill="#fde68a" font-size="9">8 → 19 features</text>
+  <text x="406" y="155" text-anchor="middle" fill="#fde68a" font-size="9">coastal_proximity</text>
+
+  <line x1="469" y1="115" x2="501" y2="115" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Step 4: Model Training -->
+  <rect x="504" y="60" width="120" height="110" rx="10" fill="#1a1a2e" stroke="#ec4899" stroke-width="2" filter="url(#sh)"/>
+  <text x="564" y="84" text-anchor="middle" fill="#f472b6" font-size="20">🧠</text>
+  <text x="564" y="104" text-anchor="middle" fill="white" font-size="12" font-weight="700">Training</text>
+  <line x1="514" y1="112" x2="614" y2="112" stroke="#9d174d" stroke-width="1"/>
+  <text x="564" y="127" text-anchor="middle" fill="#fbcfe8" font-size="9">4 models tested</text>
+  <text x="564" y="141" text-anchor="middle" fill="#fbcfe8" font-size="9">XGBoost wins</text>
+  <text x="564" y="155" text-anchor="middle" fill="#fbcfe8" font-size="9">R² = 0.8208</text>
+
+  <line x1="627" y1="115" x2="659" y2="115" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Step 5: API -->
+  <rect x="662" y="60" width="120" height="110" rx="10" fill="#064e3b" stroke="#10b981" stroke-width="2" filter="url(#sh)"/>
+  <text x="722" y="84" text-anchor="middle" fill="#34d399" font-size="20">⚡</text>
+  <text x="722" y="104" text-anchor="middle" fill="white" font-size="12" font-weight="700">FastAPI</text>
+  <line x1="672" y1="112" x2="772" y2="112" stroke="#059669" stroke-width="1"/>
+  <text x="722" y="127" text-anchor="middle" fill="#a7f3d0" font-size="9">POST /predict</text>
+  <text x="722" y="141" text-anchor="middle" fill="#a7f3d0" font-size="9">Swagger /docs</text>
+  <text x="722" y="155" text-anchor="middle" fill="#a7f3d0" font-size="9">Live on Render</text>
+
+  <line x1="785" y1="115" x2="817" y2="115" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Step 6: Output -->
+  <rect x="820" y="60" width="60" height="110" rx="10" fill="#1c1917" stroke="#f97316" stroke-width="2" filter="url(#sh)"/>
+  <text x="850" y="94" text-anchor="middle" fill="#fb923c" font-size="18">💰</text>
+  <text x="850" y="115" text-anchor="middle" fill="white" font-size="11" font-weight="700">Price</text>
+  <text x="850" y="132" text-anchor="middle" fill="#fed7aa" font-size="8">$USD</text>
+  <text x="850" y="148" text-anchor="middle" fill="#fed7aa" font-size="8">output</text>
+
+  <!-- Step labels below -->
+  <text x="90" y="190" text-anchor="middle" fill="#475569" font-size="9" font-weight="600">STEP 1</text>
+  <text x="248" y="190" text-anchor="middle" fill="#475569" font-size="9" font-weight="600">STEP 2</text>
+  <text x="406" y="190" text-anchor="middle" fill="#475569" font-size="9" font-weight="600">STEP 3</text>
+  <text x="564" y="190" text-anchor="middle" fill="#475569" font-size="9" font-weight="600">STEP 4</text>
+  <text x="722" y="190" text-anchor="middle" fill="#475569" font-size="9" font-weight="600">STEP 5</text>
+  <text x="850" y="190" text-anchor="middle" fill="#475569" font-size="9" font-weight="600">OUT</text>
+
+  <!-- Model Comparison Table -->
+  <rect x="30" y="210" width="840" height="110" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1" filter="url(#sh)"/>
+  <text x="450" y="232" text-anchor="middle" fill="#94a3b8" font-size="12" font-weight="700">📊 Model Comparison</text>
+  <line x1="45" y1="240" x2="855" y2="240" stroke="#334155" stroke-width="1"/>
+
+  <!-- Table headers -->
+  <text x="150" y="256" text-anchor="middle" fill="#64748b" font-size="10" font-weight="600">MODEL</text>
+  <text x="350" y="256" text-anchor="middle" fill="#64748b" font-size="10" font-weight="600">R² SCORE</text>
+  <text x="550" y="256" text-anchor="middle" fill="#64748b" font-size="10" font-weight="600">IMPROVEMENT</text>
+  <text x="750" y="256" text-anchor="middle" fill="#64748b" font-size="10" font-weight="600">STATUS</text>
+
+  <!-- Row 1 -->
+  <text x="150" y="273" text-anchor="middle" fill="#94a3b8" font-size="10">Linear Regression</text>
+  <text x="350" y="273" text-anchor="middle" fill="#94a3b8" font-size="10">0.6387</text>
+  <text x="550" y="273" text-anchor="middle" fill="#94a3b8" font-size="10">—</text>
+  <text x="750" y="273" text-anchor="middle" fill="#475569" font-size="10">Baseline</text>
+
+  <!-- Row 2 -->
+  <text x="150" y="288" text-anchor="middle" fill="#94a3b8" font-size="10">Ridge Regression</text>
+  <text x="350" y="288" text-anchor="middle" fill="#94a3b8" font-size="10">0.6387</text>
+  <text x="550" y="288" text-anchor="middle" fill="#94a3b8" font-size="10">+0.00</text>
+  <text x="750" y="288" text-anchor="middle" fill="#475569" font-size="10">No gain</text>
+
+  <!-- Row 3 -->
+  <text x="150" y="303" text-anchor="middle" fill="#94a3b8" font-size="10">Random Forest</text>
+  <text x="350" y="303" text-anchor="middle" fill="#fbbf24" font-size="10">0.7939</text>
+  <text x="550" y="303" text-anchor="middle" fill="#fbbf24" font-size="10">+0.155</text>
+  <text x="750" y="303" text-anchor="middle" fill="#fbbf24" font-size="10">Significant jump</text>
+
+  <!-- Row 4 — winner -->
+  <rect x="45" y="308" width="810" height="20" rx="4" fill="#14532d" opacity="0.5"/>
+  <text x="150" y="321" text-anchor="middle" fill="#34d399" font-size="10" font-weight="700">XGBoost V2 ✓</text>
+  <text x="350" y="321" text-anchor="middle" fill="#34d399" font-size="11" font-weight="700">0.8208</text>
+  <text x="550" y="321" text-anchor="middle" fill="#34d399" font-size="10" font-weight="700">+0.027</text>
+  <text x="750" y="321" text-anchor="middle" fill="#34d399" font-size="10" font-weight="700">🏆 DEPLOYED</text>
+
+</svg>
