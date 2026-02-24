@@ -10,6 +10,18 @@
 
 ---
 
+## 🏗️ System Architecture
+
+![Architecture Diagram](./architecture_diagram.svg)
+
+---
+
+## 🔄 ML Pipeline
+
+![ML Pipeline](./ml_pipeline.svg)
+
+---
+
 ## 🎯 What This Project Does
 
 This project takes raw California housing data, engineers 8 custom features, trains an XGBoost model achieving **R² = 0.8208**, and serves predictions through a live REST API that anyone can call with a URL.
@@ -107,6 +119,13 @@ K-Means (k=4) segmented California into 4 distinct housing market types:
 
 ---
 
+## 📸 Live API Screenshots
+
+![API Docs](./api_docs.png)
+![API Response](./api_response.png)
+
+---
+
 ## 🏗️ Project Structure
 ```
 california-housing-api/
@@ -145,8 +164,6 @@ Then open: `http://127.0.0.1:8000/docs`
 
 ## 🔮 Future Enhancements
 
-Features planned to further improve model accuracy:
-
 | Feature | Source | Expected Impact |
 |---|---|---|
 | Walk Score | WalkScore API (5,000 free/day) | Walkable areas command 10-20% premium |
@@ -155,6 +172,7 @@ Features planned to further improve model accuracy:
 | Property Type | Zillow/Redfin data | Single family vs condo price differently |
 | Interest Rates | FRED API (free) | Macro factor affecting affordability |
 | Employment Hub Distance | Google Maps API | Proximity to tech campuses and hospitals |
+
 ---
 
 ## 👤 Author
